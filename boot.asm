@@ -1,0 +1,19 @@
+BITS 16
+ORG 0x7C00
+
+start:
+	MOV AX, 0x0000
+	MOV ES, AX
+	MOV BX, 0x8000
+
+	MOV AH, 0x02
+	MOV AL, 2
+	MOV CH, 0
+	MOV CL, 2
+	MOV DH, 0
+	INT 0x13
+
+	JMP 0x8000
+
+TIMES 510-($-$$) DB 0
+DW 0xAA55
